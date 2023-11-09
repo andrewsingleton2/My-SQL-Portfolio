@@ -2,7 +2,7 @@
 Woof Wonderland, LLC**/
 
 
-/** SQL Store Product Database **/
+/** Creating an SQL Store Product Database **/
 CREATE TABLE products (product_list INTEGER PRIMARY KEY, item_id INTEGER, name TEXT, price INTEGER, shipping_fee INTEGER, quantity INTEGER, inventory INTEGER);
 
 /** Products: Dog Bones **/
@@ -31,11 +31,11 @@ INSERT INTO products VALUES (14, 80234824, "Woof Wonderland: Automatic Tennis Ba
 INSERT INTO products VALUES (15, 86483463, "Woof Wonderland: 3.75L Automatic Water Dispenser", 22.99, 0, 1, 394);
 INSERT INTO products VALUES (16, 86434969, "Woof Wonderland: 6 Meal Automatic Feeding Machine with Timer", 69.99, 0, 1, 221);
 
-/** Displaying Database **/
+/** Displays Full Database **/
 SELECT * FROM products;
 
-/** Display Price of All Products Combined **/
+/** Displays Price of All Store Products Combined **/
 SELECT SUM(price) FROM products;
 
-/** Display List of All Products Priced Below $50, Organizes List by the Order of the Products **/
+/** Displays List of All Products Priced Below $50, Organizes List by the Order of the Products **/
 SELECT * FROM products WHERE price < 50 ORDER BY product_list;
