@@ -2,7 +2,8 @@
 Woof Wonderland, LLC**/
 
 
-/** Creating an SQL Store Product Database **/
+/** Creating an SQL Store Product Database
+Creating a column for the order of products 1-16, product ID, name of the product, price, shipping fee, quantity, and inventory  **/
 CREATE TABLE products (product_list INTEGER PRIMARY KEY, item_id INTEGER, name TEXT, price INTEGER, shipping_fee INTEGER, quantity INTEGER, inventory INTEGER);
 
 /** Products: Dog Bones **/
