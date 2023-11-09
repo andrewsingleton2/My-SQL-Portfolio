@@ -1,0 +1,41 @@
+/** SQL Database for Dog Store:
+Woof Wonderland, LLC**/
+
+
+/** SQL Store Product Database **/
+CREATE TABLE products (product_list INTEGER PRIMARY KEY, item_id INTEGER, name TEXT, price INTEGER, shipping_fee INTEGER, quantity INTEGER, inventory INTEGER);
+
+/** Products: Dog Bones **/
+INSERT INTO products VALUES (1, 80235326, "Woof Wonderland Busy Bones (Small) (10ct)", 10.99, 2.99, 1, 1000);
+INSERT INTO products VALUES (2, 84335425, "Woof Wonderland Busy Bones (Medium) (10ct)", 15.99, 2.99, 1, 650);
+INSERT INTO products VALUES (3, 85726043, "Woof Wonderland Busy Bones (Large) (10ct)", 19.99, 2.99, 1, 876);
+
+/** Products: Dog Beds **/
+INSERT INTO products VALUES (4, 84752543, "Woof Wonderland: Comfort Zone Dog Bed 23x18, Up to 35lbs (Small)", 24.99, 2.99, 1, 489);
+INSERT INTO products VALUES (5, 86748421, "Woof Wonderland: Comfort Zone Dog Bed 28x22, Up to 50lbs (Medium)", 28.99, 2.99, 1, 350);
+INSERT INTO products VALUES (6, 83674243, "Woof Wonderland: Comfort Zone Dog Bed 36x26, Up to 70lbs (Large)", 40.99, 2.99, 1, 563);
+
+/** Products: Pet Gates **/
+INSERT INTO products VALUES (7, 88953742, "Woof Wonderland: Position & Lock Adjustable Plastic Pet Gate 28-42", 24.99, 2.99, 1, 147);
+INSERT INTO products VALUES (8, 85947264, "Woof Wonderland: Walk Through Door, Plastic Pet Gate 28-42", 37.99, 2.99, 1, 34);
+INSERT INTO products VALUES (9, 84905323, "Woof Wonderland: Position & Lock Adjustable Wooden Pet Gate 28-42", 43.99, 2.99, 1, 86);
+INSERT INTO products VALUES (10, 83995846, "Woof Wonderland: Walk Through Door, Wooden Pet Gate 28-42", 54.99, 0, 1, 45);
+
+/** Products: Fetch Toys **/
+INSERT INTO products VALUES (11, 83952352, "Woof Wonderland: Fetch Dog Toys, 3 Pack Spiky Ball", 3.99, 2.99, 1, 1593);
+INSERT INTO products VALUES (12, 89487264, "Woof Wonderland: Fetch Dog Toys, 3 Pack Rubber Ball", 6.99, 2.99, 1, 1235);
+INSERT INTO products VALUES (13, 82504004, "Woof Wonderland: Fetch Dog Toys, 2 Pack Giant Tennis Ball", 11.99, 2.99, 1, 489);
+
+/** Products: Machines **/
+INSERT INTO products VALUES (14, 80234824, "Woof Wonderland: Automatic Tennis Ball Launcher for Dogs", 119.99, 0, 1, 394);
+INSERT INTO products VALUES (15, 86483463, "Woof Wonderland: 3.75L Automatic Water Dispenser", 22.99, 0, 1, 394);
+INSERT INTO products VALUES (16, 86434969, "Woof Wonderland: 6 Meal Automatic Feeding Machine with Timer", 69.99, 0, 1, 221);
+
+/** Displaying Database **/
+SELECT * FROM products;
+
+/** Display Price of All Products Combined **/
+SELECT SUM(price) FROM products;
+
+/** Display List of All Products Priced Below $50, Organizes List by the Order of the Products **/
+SELECT * FROM products WHERE price < 50 ORDER BY product_list;
