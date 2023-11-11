@@ -58,17 +58,6 @@ select name 'Male Marvel Characters' from marvels where gender = 'Male';
 /* Displays female marvel characters */
 select name 'Female Marvel Characters' from marvels where gender = 'Female';
 
-/* Defines and displays heros and villians, anything else will be classified as 'anti hero */
-select
-    name,
-    alignment,
-    case
-        when alignment = 'Bad' THEN 'Villian'
-        when alignment = 'Good' THEN 'Hero'
-        else 'Anti Hero'
-    and as role
-from
-    marvels;
 
 /* Defines and displays the genders and heros/villians roles, anything else will be classified as 'undecided' */
 select
@@ -85,4 +74,8 @@ from
     marvels;
     
 /* Displays the strongest and fastest marvel characters */
-select * from marvels where strength and speed >= 5;
+select name 'Strongest Marvel Characters', strength, speed from marvels where strength and speed >= 5 or strength >= 7;
+
+
+/* Displays total rating for fighting skills on the list of marvel characters */
+select sum(fighting_Skills) as total_marvel_skill_rating from marvels;
