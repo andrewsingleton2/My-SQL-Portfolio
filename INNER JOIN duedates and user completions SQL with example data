@@ -1,0 +1,6 @@
+SELECT due.userid, due.courseid, due.duedate, com.completion_date
+FROM table1_completions com
+INNER JOIN table2_duedates due on due.userid = com.userid
+WHERE due.userid IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+AND due.courseid = 10101011
+ORDER BY com.userid;
