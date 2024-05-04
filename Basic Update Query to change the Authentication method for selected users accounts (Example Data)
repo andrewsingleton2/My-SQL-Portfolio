@@ -1,0 +1,11 @@
+UPDATE user_table
+set auth = 'power2fa'
+WHERE `auth` LIKE 'manual'
+and firstname not like 'Admin'
+and firstname not like 'User'
+and firstname not like 'example1'
+and firstname not like 'example2'
+and lastname not like 'Admin'
+and lastname not like 'User'
+and email not like '%company%'
+and email not like '%example%';
