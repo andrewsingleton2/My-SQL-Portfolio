@@ -1,0 +1,10 @@
+SELECT * from mdl_course c
+WHERE c.id
+IN (c.id
+IN (SELECT mdl_roster.course
+FROM mdl_roster
+INNER JOIN table_courseinfo ON table_rostercourse = table_courseinfo_courseid
+INNER JOIN table_course ON table_courseinfo_courseid = table_courseid
+INNER JOIN table_course_categories ON table_coursecategory = table_course_categoriesid
+WHERE table_delivery = '2' AND start_date > UNIX_TIMESTAMP() AND mdl_rosterstatus = 1
+AND table_categories.visible = 1 AND table_roster.contractor_access = 1));
