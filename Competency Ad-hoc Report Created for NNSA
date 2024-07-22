@@ -1,0 +1,35 @@
+SELECT 
+    agg.firstname AS 'First Name', 
+    agg.lastname AS 'Last Name', 
+    agg.emporgtitle AS 'Organization', 
+    agg.subagencies AS 'Organization Subdivisions', 
+    agg.dutystationstateabbrev AS 'Location', 
+    agg.supervisorstatus AS 'Supervisory Status',
+  GROUP_CONCAT(CONCAT(comp.shortname, ' - ', 
+        CASE 
+            WHEN r.owner = r.rater THEN r.rating 
+            ELSE NULL 
+        END) SEPARATOR '<br>') AS 'Self assessment for each competency',
+    GROUP_CONCAT(DISTINCT CONCAT(comp.shortname, ' - ', 
+        CASE 
+            WHEN r.owner != r.rater THEN r.rating 
+            ELSE NULL 
+        END) SEPARATOR '<br>') AS 'Supervisors assessment for each competency'
+FROM 
+    mdl_table1 c
+INNER JOIN 
+    mdl_table2 comp ON FIND_IN_SET(comp.id, c.competencies) <> 0 
+LEFT JOIN 
+    mdl_table3 agg ON agg.userid = c.userid
+INNER JOIN
+    mdl_table4 r ON r.owner = c.userid AND r.competencyid = comp.id
+WHERE
+    agg.emporgcode LIKE 'N%'
+    AND comp.competencyframeworkid = 12
+%%FILTER_STARTTIME:c.saved:>=%% 
+%%FILTER_ENDTIME:c.saved:<=%% 
+%%FILTER_SEARCHTEXT:temp.shortname:~%%
+GROUP BY 
+    agg.userid, agg.firstname, agg.lastname, agg.emporgtitle, agg.subagencies, agg.dutystationstateabbrev, agg.supervisorstatus
+ORDER BY 
+    agg.email
