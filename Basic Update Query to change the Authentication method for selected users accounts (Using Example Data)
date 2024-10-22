@@ -1,6 +1,6 @@
-UPDATE user_table
-set auth = 'power2fa'
-WHERE `auth` LIKE 'manual'
+UPDATE user_table1
+set auth = 'power2factorauthentication'
+WHERE `authentication` LIKE 'manual'
 and firstname not like 'Admin'
 and firstname not like 'User'
 and firstname not like 'example1'
